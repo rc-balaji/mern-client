@@ -1,1 +1,1 @@
-export const baseURL = "http://localhost:5000/api"
+export const baseURL = "https://mern-server2-7l54.onrender.com/api"
