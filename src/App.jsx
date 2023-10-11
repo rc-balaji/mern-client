@@ -9,6 +9,7 @@ function App() {
   const [tasks, setTasks] = useState([])
   const [updateUI, setUpdateUI] = useState(false)
   const [updateID, setUpdateID] = useState(null)
+  const [refresh,setRefresh] = useState(0)
   
   const Get = async ()=>{
     await axios.get(`${baseURL}/get`).then((res) => {
