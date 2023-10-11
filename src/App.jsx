@@ -10,12 +10,17 @@ function App() {
   const [updateUI, setUpdateUI] = useState(false)
   const [updateID, setUpdateID] = useState(null)
   
-  useEffect(() => {
-    axios.get(`${baseURL}/get`).then((res) => {
+  const Get = async ()=>{
+    await axios.get(`${baseURL}/get`).then((res) => {
       console.log(res.data)
       setTasks(res.data)
     })
-  }, [updateUI])
+    setRefresh(refresh+1)
+  }
+  
+  useEffect( () => {
+    Get()
+  }, [updateUI,refresh])
 
   const addTask = () => {
     axios.post(`${baseURL}/save`, { task: task1 }).then((res) => {
